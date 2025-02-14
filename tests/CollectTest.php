@@ -1,31 +1,30 @@
 <?php
-use PHPUnit\Framework\TestCase; // 1
-use Collect\Collect; // 2
+use PHPUnit\Framework\TestCase;
+use Collect\Collect;
 
-class CollectTest extends TestCase // 3
-{
-    public function testKeysFunction() // 4
+class CollectTest extends TestCase {
+    public function testKeysFunction()
     {
-        $collection = new Collect(['name' => 'Alex', 'age' => 25, 'city' => 'Los Angeles']); // 5
-        $this->assertEquals(['name', 'age', 'city'], $collection->keys()->toArray()); // 6
+        $collection = new Collect(['name' => 'Alex', 'age' => 25, 'city' => 'Los Angeles']);
+        $this->assertEquals(['name', 'age', 'city'], $collection->keys()->toArray());
     }
 
-    public function testValues() // 7
+    public function testValues()
     {
-        $collection = new Collect(['name' => 'Alex', 'age' => 25, 'city' => 'Los Angeles']); // 8
-        $this->assertEquals(['Alex', 25, 'Los Angeles'], $collection->values()->toArray()); // 9
+        $collection = new Collect(['name' => 'Alex', 'age' => 25, 'city' => 'Los Angeles']);
+        $this->assertEquals(['Alex', 25, 'Los Angeles'], $collection->values()->toArray());
     }
 
-    public function testGet() // 10
+    public function testGet()
     {
-        $collection = new Collect(['name' => 'Alex', 'age' => 25, 'city' => 'Los Angeles']); // 11
-        $this->assertEquals(25, $collection->get('age')); // 12
-        $this->assertEquals(null, $collection->get('surname')); // 13
+        $collection = new Collect(['name' => 'Alex', 'age' => 25, 'city' => 'Los Angeles']);
+        $this->assertEquals(25, $collection->get('age'));
+        $this->assertEquals(null, $collection->get('surname'));
     }
 
-    public function testExcept() // 14
+    public function testExcept()
     {
-        $collection = new Collect(['name' => 'Alex', 'age' => 25, 'city' => 'Los Angeles']); // 15
-        $this->assertEquals(['name' => 'Alex', 'city' => 'Los Angeles'], $collection->except('age')->toArray()); // 16
+        $collection = new Collect(['name' => 'Alex', 'age' => 25, 'city' => 'Los Angeles']);
+        $this->assertEquals(['name' => 'Alex', 'city' => 'Los Angeles'], $collection->except('age')->toArray());
     }
 }
